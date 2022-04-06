@@ -23,10 +23,19 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+## Capture Image Front
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 ![img.png](img.png)
 
 ![img_1.png](img_1.png)
+
+
+## Capture Image BD
+
+![img_2.png](img_2.png)
+
+## Capture Image POSTMAN
+
+![img_3.png](img_3.png)
