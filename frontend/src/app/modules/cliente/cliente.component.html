@@ -1,0 +1,82 @@
+<div class="container-fluid">
+  <div class="row justify-content-center align-content-center">
+    <div class="col-8 barra">
+      <h4 class="text-light">SMARTSOFT</h4>
+    </div>
+    <div class="col-4 text-right barra">
+      <ul class="navbar-nav mr-auto">
+        <li>
+          <a
+            href="#"
+            class="px-3 text-light perfil dropdown-toggle"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          ><i class="fas fa-user-circle user"></i
+          ></a>
+
+          <div class="dropdown-menu" aria-labelledby="navbar-dropdown">
+            <a class="dropdown-item menuperfil cerrar" href="#"
+            ><i class="fas fa-sign-out-alt m-1"></i>Salir
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="barra-lateral col-12 col-sm-auto">
+      <nav class="menu d-flex d-sm-block justify-content-center flex-wrap">
+        <a href="#"><i class="fas fa-home"></i><span>Inicio</span></a>
+        <a class="nav-link" routerLink="/cliente"
+        ><i class="fas fa-home"></i><span>Clientes</span></a
+        >
+      </nav>
+    </div>
+    <div class="main col">
+      <div class="container mt-4">
+        <div class="card">
+          <div class="card-header text-center">
+            <h3>{{ title }}</h3>
+          </div>
+          <div class="card-body">
+            <table class="table table-striped" *ngIf="clientes?.length > 0">
+              <thead class="text-center">
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Dirección</th>
+              <th>Fecha de Nacimiento</th>
+              <th>Teléfono</th>
+              <th>Email</th>
+              </thead>
+              <tbody>
+              <tr *ngFor="let cliente of clientes" class="text-center">
+                <td>{{ cliente.idCliente }}</td>
+                <td>{{ cliente.nombre }}</td>
+                <td>{{ cliente.apellido }}</td>
+                <td>{{ cliente.direccion }}</td>
+                <td>{{ cliente.fechaNacimiento }}</td>
+                <td>{{ cliente.telefono }}</td>
+                <td>{{ cliente.email }}</td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="alert alert-warning" *ngIf="clientes?.length === 0">
+              <h5 class="text-center">No hay información para mostrar</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <footer class="page-footer font-small blue pt-4">
+        <div class="footer-copyright text-center py-3">© 2022 Copyright</div>
+      </footer>
+    </div>
+  </div>
+</div>

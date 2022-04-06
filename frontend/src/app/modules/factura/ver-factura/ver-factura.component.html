@@ -1,0 +1,128 @@
+<div class="container-fluid">
+  <div class="row justify-content-center align-content-center">
+    <div class="col-8 barra">
+      <h4 class="text-light">SMARTSOFT</h4>
+    </div>
+    <div class="col-4 text-right barra">
+      <ul class="navbar-nav mr-auto">
+        <li>
+          <a
+            href="#"
+            class="px-3 text-light perfil dropdown-toggle"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          ><i class="fas fa-user-circle user"></i
+          ></a>
+
+          <div class="dropdown-menu" aria-labelledby="navbar-dropdown">
+            <a class="dropdown-item menuperfil cerrar" href="#"
+            ><i class="fas fa-sign-out-alt m-1"></i>Salir
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="barra-lateral col-12 col-sm-auto">
+      <nav class="menu d-flex d-sm-block justify-content-center flex-wrap">
+        <a href="#"><i class="fas fa-home"></i><span>Inicio</span></a>
+        <a class="nav-link" routerLink="/cliente"
+        ><i class="fas fa-home"></i><span>Clientes</span></a
+        >
+      </nav>
+    </div>
+    <div class="main col">
+      <div class="container mt-4">
+        <div class="d-flex">
+          <button class="btn btn-success mb-3 ml-auto" routerLink="/home">
+            <i class="fa-solid fa-arrow-rotate-left"></i> Volver
+          </button>
+        </div>
+        <div class="card">
+          <div class="card-header text-center">
+            <h3>{{ title }}</h3>
+          </div>
+          <div class="card-body">
+            <div class="form-group row">
+              <label for="facturaCliente" class="col-sm-2 col-form-label"
+              >Cliente</label
+              >
+              <input
+                type="text"
+                readonly
+                class="form-control-plaintext col-sm-2 col-md-4"
+                id="facturaCliente"
+                value="{{
+                  this.factura?.cliente.nombre +
+                    ' ' +
+                    this.factura?.cliente.apellido
+                }}"
+              />
+            </div>
+            <div class="form-group row">
+              <label for="facturaFecha" class="col-sm-2 col-form-label"
+              >Fecha</label
+              >
+              <input
+                type="text"
+                readonly
+                class="form-control-plaintext col-sm-2 col-md-4"
+                id="facturaFecha"
+                value="{{ this.factura?.fecha | date: 'yyyy-MM-dd' }}"
+              />
+            </div>
+          </div>
+          <div class="card-body">
+            <table class="table table-striped container">
+              <thead class="text-center row border">
+              <th class="col-lg-2 col-md-2 col-sm-3">No Factura</th>
+              <th class="col-lg-5 col-md-5 col-sm-3">Producto</th>
+              <th class="col-lg-2 col-md-2 col-sm-3">Cantidad</th>
+              <th class="col-lg-3 col-md-3 col-sm-3">Precio</th>
+              </thead>
+              <tbody *ngIf="this.factura.detalle.length > 0">
+              <tr
+                class="row text-center"
+                *ngFor="let detalleFactura of this.factura.detalle"
+              >
+                <td class="col-lg-2 col-md-2 col-sm-3">
+                  {{ detalleFactura.numFactura }}
+                </td>
+                <td class="col-lg-5 col-md-5 col-sm-3">
+                  {{ detalleFactura.producto.nombre }}
+                </td>
+                <td class="col-lg-2 col-md-2 col-sm-3">
+                  {{ detalleFactura.cantidad }}
+                </td>
+                <td class="col-lg-3 col-md-3 col-sm-3">
+                  {{ detalleFactura.precio | currency }}
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="container-fluid">
+              <div class="d-flex flex-row">
+                <div class="col-lg-6">
+                  <h5>Total</h5>
+                </div>
+                <div class="col-lg-6 text-right">
+                  <h5>{{ total | currency }}</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <footer class="page-footer font-small blue pt-4">
+        <div class="footer-copyright text-center py-3">© 2022 Copyright</div>
+      </footer>
+    </div>
+  </div>
+</div>
