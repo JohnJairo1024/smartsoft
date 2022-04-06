@@ -3,6 +3,8 @@ package com.facturacion.smartsoft.service.impl;
 
 import com.facturacion.smartsoft.model.Cliente;
 
+import com.facturacion.smartsoft.repository.IClienteRepo;
+import com.facturacion.smartsoft.service.IClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
